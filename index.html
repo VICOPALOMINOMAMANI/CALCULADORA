@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,30 +24,30 @@
     header {
       background: #2563eb;
       color: white;
-      padding: 30px 20px;
+      padding: 25px 15px;
       text-align: center;
     }
 
     header h1 {
-      font-size: 28px;
+      font-size: 25px;
       margin-bottom: 8px;
     }
 
     header p {
-      font-size: 15px;
+      font-size: 14px;
       opacity: 0.9;
     }
 
     .container {
       width: 92%;
-      max-width: 900px;
-      margin: 30px auto;
+      max-width: 850px;
+      margin: 25px auto;
     }
 
     .card {
       background: white;
       border-radius: 14px;
-      padding: 25px;
+      padding: 24px;
       margin-bottom: 20px;
       box-shadow: 0 5px 18px rgba(0, 0, 0, 0.08);
     }
@@ -54,7 +55,7 @@
     .card h2 {
       color: #1d4ed8;
       margin-bottom: 20px;
-      font-size: 21px;
+      font-size: 20px;
     }
 
     .form-grid {
@@ -75,16 +76,23 @@
     }
 
     input {
-      padding: 11px;
+      width: 100%;
+      padding: 13px;
       border: 1px solid #cbd5e1;
-      border-radius: 7px;
-      font-size: 15px;
+      border-radius: 8px;
+      font-size: 17px;
       outline: none;
     }
 
     input:focus {
       border-color: #2563eb;
       box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.12);
+    }
+
+    .ayuda {
+      font-size: 12px;
+      color: #64748b;
+      margin-top: 5px;
     }
 
     .buttons {
@@ -95,8 +103,8 @@
 
     button {
       border: none;
-      padding: 11px 18px;
-      border-radius: 7px;
+      padding: 13px 20px;
+      border-radius: 8px;
       cursor: pointer;
       font-size: 15px;
       font-weight: bold;
@@ -116,21 +124,14 @@
       color: #334155;
     }
 
-    .btn-example {
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
-    }
-
-    .examples {
-      margin-top: 20px;
-      padding-top: 18px;
-      border-top: 1px solid #e2e8f0;
-    }
-
-    .examples p {
-      margin-bottom: 10px;
-      font-weight: bold;
+    .error {
+      display: none;
+      margin-top: 18px;
+      background: #fef2f2;
+      border: 1px solid #fca5a5;
+      color: #991b1b;
+      padding: 13px;
+      border-radius: 8px;
     }
 
     .resultados {
@@ -152,13 +153,13 @@
     }
 
     .resultado-item h3 {
-      font-size: 14px;
+      font-size: 13px;
       color: #64748b;
       margin-bottom: 7px;
     }
 
     .resultado-item p {
-      font-size: 19px;
+      font-size: 18px;
       font-weight: bold;
       color: #1e293b;
     }
@@ -203,20 +204,10 @@
     .formula {
       background: #f1f5f9;
       padding: 13px;
-      margin-top: 10px;
+      margin-top: 12px;
       border-radius: 7px;
       font-weight: bold;
       text-align: center;
-    }
-
-    .error {
-      display: none;
-      margin-top: 15px;
-      background: #fef2f2;
-      border: 1px solid #fca5a5;
-      color: #991b1b;
-      padding: 12px;
-      border-radius: 7px;
     }
 
     footer {
@@ -229,7 +220,16 @@
     @media (max-width: 650px) {
 
       header h1 {
-        font-size: 22px;
+        font-size: 21px;
+      }
+
+      .container {
+        width: 94%;
+        margin-top: 15px;
+      }
+
+      .card {
+        padding: 18px;
       }
 
       .form-grid,
@@ -245,21 +245,29 @@
         width: 100%;
       }
 
-      .card {
-        padding: 18px;
+      input {
+        font-size: 18px;
+        padding: 14px;
       }
     }
   </style>
 </head>
 
+
 <body>
 
 <header>
-  <h1>👶 Calculadora de Edad Infantil</h1>
-  <p>Calcula la edad cronológica y la edad corregida por prematuridad</p>
+  <h1>👶 Calculadora de Edad</h1>
+
+  <p>
+    Edad cronológica y edad corregida
+  </p>
 </header>
 
+
 <main class="container">
+
+  <!-- DATOS -->
 
   <section class="card">
 
@@ -267,45 +275,106 @@
 
     <div class="form-grid">
 
+      <!-- NOMBRE -->
+
       <div class="form-group">
-        <label for="nombre">Nombre</label>
+
+        <label for="nombre">
+          Nombre
+        </label>
+
         <input
           type="text"
           id="nombre"
-          placeholder="Ejemplo: Sebastián"
+          value="Vico"
         >
+
       </div>
 
+
+      <!-- GESTACIÓN -->
+
       <div class="form-group">
-        <label for="gestacion">Edad gestacional al nacer (semanas)</label>
+
+        <label for="gestacion">
+          Edad gestacional al nacer
+        </label>
+
         <input
           type="number"
           id="gestacion"
           min="20"
           max="45"
+          inputmode="numeric"
           placeholder="Ejemplo: 34"
         >
+
+        <span class="ayuda">
+          Ingrese las semanas de gestación
+        </span>
+
       </div>
 
+
+      <!-- NACIMIENTO -->
+
       <div class="form-group">
-        <label for="nacimiento">Fecha de nacimiento</label>
+
+        <label for="nacimiento">
+          Fecha de nacimiento
+        </label>
+
         <input
-          type="date"
+          type="text"
           id="nacimiento"
+          placeholder="AAAA/MM/DD"
+          inputmode="numeric"
+          maxlength="10"
+          oninput="formatearFecha(this)"
         >
+
+        <span class="ayuda">
+          Ejemplo: 2026/02/20
+        </span>
+
       </div>
 
+
+      <!-- EVALUACIÓN -->
+
       <div class="form-group">
-        <label for="evaluacion">Fecha de evaluación</label>
+
+        <label for="evaluacion">
+          Fecha de evaluación
+        </label>
+
         <input
-          type="date"
+          type="text"
           id="evaluacion"
+          placeholder="AAAA/MM/DD"
+          inputmode="numeric"
+          maxlength="10"
+          oninput="formatearFecha(this)"
         >
+
+        <span class="ayuda">
+          Ejemplo: 2026/10/02
+        </span>
+
       </div>
 
     </div>
 
-    <div class="error" id="error"></div>
+
+    <!-- ERROR -->
+
+    <div
+      class="error"
+      id="error">
+    </div>
+
+
+    <!-- BOTONES -->
 
     <div class="buttons">
 
@@ -323,444 +392,900 @@
 
     </div>
 
-    
   </section>
 
 
-  <section class="card resultados" id="resultados">
+  <!-- RESULTADOS -->
+
+  <section
+    class="card resultados"
+    id="resultados">
 
     <h2>Resultados</h2>
+
 
     <div class="resultado-grid">
 
       <div class="resultado-item">
-        <h3>Nombre</h3>
-        <p id="rNombre">-</p>
+
+        <h3>
+          Nombre
+        </h3>
+
+        <p id="rNombre">
+          -
+        </p>
+
       </div>
 
-      <div class="resultado-item">
-        <h3>Edad gestacional</h3>
-        <p id="rGestacion">-</p>
-      </div>
 
       <div class="resultado-item">
-        <h3>Edad cronológica</h3>
-        <p id="rCronologica">-</p>
+
+        <h3>
+          Edad gestacional
+        </h3>
+
+        <p id="rGestacion">
+          -
+        </p>
+
       </div>
 
+
       <div class="resultado-item">
-        <h3>Edad corregida</h3>
-        <p id="rCorregida">-</p>
+
+        <h3>
+          Edad cronológica
+        </h3>
+
+        <p id="rCronologica">
+          -
+        </p>
+
+      </div>
+
+
+      <div class="resultado-item">
+
+        <h3>
+          Edad corregida
+        </h3>
+
+        <p id="rCorregida">
+          -
+        </p>
+
       </div>
 
     </div>
 
-    <div id="estado" class="estado"></div>
 
-    <div class="explicacion" id="explicacion"></div>
+    <div
+      id="estado"
+      class="estado">
+    </div>
+
+
+    <div
+      class="explicacion"
+      id="explicacion">
+    </div>
 
   </section>
 
 
+  <!-- INFORMACIÓN -->
+
   <section class="card info">
 
-    <h2>¿Cómo funciona?</h2>
+    <h2>
+      ¿Cómo se calcula?
+    </h2>
 
-    <h3>Edad cronológica</h3>
+
+    <h3>
+      Edad cronológica
+    </h3>
 
     <p>
-      Es el tiempo real transcurrido desde la fecha de nacimiento
+      Es el tiempo transcurrido desde el nacimiento
       hasta la fecha de evaluación.
     </p>
 
-    <h3>Edad corregida</h3>
+
+    <h3>
+      Edad corregida
+    </h3>
 
     <p>
-      En bebés prematuros se puede ajustar la edad considerando
-      las semanas que faltaron para completar 40 semanas de gestación.
+      Cuando el bebé nació prematuramente, se considera
+      el tiempo que le faltó para completar las 40 semanas
+      de gestación.
     </p>
 
+
     <div class="formula">
-      Edad corregida = Edad cronológica − tiempo de prematuridad
+
+      Edad corregida =
+      Edad cronológica − tiempo de prematuridad
+
     </div>
 
-    <h3>¿Cuándo se considera prematuro?</h3>
+
+    <h3>
+      ¿Cuándo se considera prematuro?
+    </h3>
 
     <p>
-      Se considera nacimiento prematuro cuando ocurre antes de
-      completar las 37 semanas de gestación.
+      Cuando nace antes de completar las
+      37 semanas de gestación.
     </p>
 
   </section>
 
 </main>
 
+
 <footer>
+
   Calculadora educativa de edad cronológica y corregida
+
 </footer>
 
 
 <script>
 
-  function crearFecha(valor) {
+  /* =========================================
+     FORMATEAR FECHA AUTOMÁTICAMENTE
+     ========================================= */
 
-    const partes = valor.split("-");
+  function formatearFecha(input) {
 
-    return new Date(
-      Number(partes[0]),
-      Number(partes[1]) - 1,
-      Number(partes[2])
-    );
+    let numeros =
+      input.value.replace(/\D/g, "");
+
+    numeros =
+      numeros.substring(0, 8);
+
+    let resultado = "";
+
+
+    if (numeros.length <= 4) {
+
+      resultado = numeros;
+
+    }
+
+    else if (numeros.length <= 6) {
+
+      resultado =
+        numeros.substring(0, 4) +
+        "/" +
+        numeros.substring(4);
+
+    }
+
+    else {
+
+      resultado =
+        numeros.substring(0, 4) +
+        "/" +
+        numeros.substring(4, 6) +
+        "/" +
+        numeros.substring(6, 8);
+
+    }
+
+
+    input.value = resultado;
+
   }
 
 
+
+  /* =========================================
+     VALIDAR FECHA
+     ========================================= */
+
+  function fechaValida(valor) {
+
+    const patron =
+      /^\d{4}\/\d{2}\/\d{2}$/;
+
+
+    if (!patron.test(valor)) {
+
+      return false;
+
+    }
+
+
+    const partes =
+      valor.split("/");
+
+
+    const año =
+      Number(partes[0]);
+
+    const mes =
+      Number(partes[1]);
+
+    const dia =
+      Number(partes[2]);
+
+
+    const fecha =
+      new Date(
+        año,
+        mes - 1,
+        dia
+      );
+
+
+    return (
+
+      fecha.getFullYear() === año &&
+
+      fecha.getMonth() === mes - 1 &&
+
+      fecha.getDate() === dia
+
+    );
+
+  }
+
+
+
+  /* =========================================
+     CONVERTIR TEXTO EN FECHA
+     ========================================= */
+
+  function crearFecha(valor) {
+
+    const partes =
+      valor.split("/");
+
+
+    return new Date(
+
+      Number(partes[0]),
+
+      Number(partes[1]) - 1,
+
+      Number(partes[2])
+
+    );
+
+  }
+
+
+
+  /* =========================================
+     CALCULAR DIFERENCIA ENTRE DOS FECHAS
+     ========================================= */
+
   function diferenciaFechas(inicio, fin) {
 
-    let años = fin.getFullYear() - inicio.getFullYear();
-    let meses = fin.getMonth() - inicio.getMonth();
-    let dias = fin.getDate() - inicio.getDate();
+    let años =
+      fin.getFullYear() -
+      inicio.getFullYear();
+
+
+    let meses =
+      fin.getMonth() -
+      inicio.getMonth();
+
+
+    let dias =
+      fin.getDate() -
+      inicio.getDate();
+
+
 
     if (dias < 0) {
 
       meses--;
 
-      const diasMesAnterior = new Date(
-        fin.getFullYear(),
-        fin.getMonth(),
-        0
-      ).getDate();
+
+      const diasMesAnterior =
+        new Date(
+
+          fin.getFullYear(),
+
+          fin.getMonth(),
+
+          0
+
+        ).getDate();
+
 
       dias += diasMesAnterior;
+
     }
+
+
 
     if (meses < 0) {
+
       años--;
+
       meses += 12;
+
     }
 
+
+
     return {
-      años,
-      meses,
-      dias
+
+      años: años,
+
+      meses: meses,
+
+      dias: dias
+
     };
+
   }
 
+
+
+  /* =========================================
+     CONVERTIR EDAD A TEXTO
+     ========================================= */
 
   function textoEdad(edad) {
 
     let partes = [];
 
+
     if (edad.años > 0) {
+
       partes.push(
+
         edad.años +
-        (edad.años === 1 ? " año" : " años")
+
+        (edad.años === 1
+          ? " año"
+          : " años")
+
       );
+
     }
+
 
     if (edad.meses > 0) {
+
       partes.push(
+
         edad.meses +
-        (edad.meses === 1 ? " mes" : " meses")
+
+        (edad.meses === 1
+          ? " mes"
+          : " meses")
+
       );
+
     }
 
-    if (edad.dias > 0 || partes.length === 0) {
+
+    if (
+
+      edad.dias > 0 ||
+
+      partes.length === 0
+
+    ) {
+
       partes.push(
+
         edad.dias +
-        (edad.dias === 1 ? " día" : " días")
+
+        (edad.dias === 1
+          ? " día"
+          : " días")
+
       );
+
     }
+
 
     return partes.join(", ");
+
   }
 
+
+
+  /* =========================================
+     CALCULAR
+     ========================================= */
 
   function calcular() {
 
     const nombre =
-      document.getElementById("nombre").value.trim();
+      document
+        .getElementById("nombre")
+        .value
+        .trim();
+
 
     const nacimientoValor =
-      document.getElementById("nacimiento").value;
+      document
+        .getElementById("nacimiento")
+        .value;
+
 
     const evaluacionValor =
-      document.getElementById("evaluacion").value;
+      document
+        .getElementById("evaluacion")
+        .value;
+
 
     const gestacion =
-      parseInt(document.getElementById("gestacion").value);
+      parseInt(
 
-    const error =
-      document.getElementById("error");
+        document
+          .getElementById("gestacion")
+          .value
+
+      );
+
 
     const resultados =
-      document.getElementById("resultados");
+      document.getElementById(
+        "resultados"
+      );
 
 
-    error.style.display = "none";
-    resultados.style.display = "none";
+    document
+      .getElementById("error")
+      .style.display = "none";
 
+
+    resultados.style.display =
+      "none";
+
+
+
+    /* VALIDAR CAMPOS */
 
     if (
+
       !nombre ||
+
       !nacimientoValor ||
+
       !evaluacionValor ||
+
       isNaN(gestacion)
+
     ) {
 
       mostrarError(
-        "Por favor, completa todos los datos."
+        "Complete todos los datos."
       );
 
       return;
+
     }
 
 
-    if (gestacion < 20 || gestacion > 45) {
+
+    /* VALIDAR GESTACIÓN */
+
+    if (
+
+      gestacion < 20 ||
+
+      gestacion > 45
+
+    ) {
 
       mostrarError(
-        "La edad gestacional debe estar entre 20 y 45 semanas."
+        "Ingrese una edad gestacional válida."
       );
 
       return;
+
     }
+
+
+
+    /* VALIDAR FECHAS */
+
+    if (!fechaValida(nacimientoValor)) {
+
+      mostrarError(
+        "La fecha de nacimiento no es válida. Use AAAA/MM/DD."
+      );
+
+      return;
+
+    }
+
+
+    if (!fechaValida(evaluacionValor)) {
+
+      mostrarError(
+        "La fecha de evaluación no es válida. Use AAAA/MM/DD."
+      );
+
+      return;
+
+    }
+
 
 
     const nacimiento =
       crearFecha(nacimientoValor);
 
+
     const evaluacion =
       crearFecha(evaluacionValor);
+
 
 
     if (evaluacion < nacimiento) {
 
       mostrarError(
-        "La fecha de evaluación no puede ser anterior a la fecha de nacimiento."
+        "La fecha de evaluación no puede ser anterior al nacimiento."
       );
 
       return;
+
     }
 
 
-    // EDAD CRONOLÓGICA
+
+    /* =========================================
+       EDAD CRONOLÓGICA
+       ========================================= */
 
     const edadCronologica =
-      diferenciaFechas(nacimiento, evaluacion);
+      diferenciaFechas(
+
+        nacimiento,
+
+        evaluacion
+
+      );
 
 
-    // RESULTADOS BÁSICOS
 
-    document.getElementById("rNombre").textContent =
+    document
+      .getElementById("rNombre")
+      .textContent =
       nombre;
 
-    document.getElementById("rGestacion").textContent =
+
+    document
+      .getElementById("rGestacion")
+      .textContent =
       gestacion + " semanas";
 
-    document.getElementById("rCronologica").textContent =
+
+    document
+      .getElementById("rCronologica")
+      .textContent =
       textoEdad(edadCronologica);
 
 
+
     const estado =
-      document.getElementById("estado");
+      document.getElementById(
+        "estado"
+      );
+
 
     const explicacion =
-      document.getElementById("explicacion");
+      document.getElementById(
+        "explicacion"
+      );
 
 
-    // PREMATURO
+
+    /* =========================================
+       BEBÉ PREMATURO
+       ========================================= */
 
     if (gestacion < 37) {
 
       const semanasPrematuridad =
         40 - gestacion;
 
+
       const diasPrematuridad =
         semanasPrematuridad * 7;
 
 
-      // Fecha teórica correspondiente a 40 semanas
+
+      /*
+        Se crea una fecha equivalente
+        al momento en que habría
+        completado 40 semanas.
+      */
 
       const fechaCorregida =
         new Date(nacimiento);
 
+
       fechaCorregida.setDate(
+
         fechaCorregida.getDate() +
+
         diasPrematuridad
+
       );
+
 
 
       let edadCorregida;
 
 
-      if (evaluacion < fechaCorregida) {
+
+      if (
+
+        evaluacion <
+        fechaCorregida
+
+      ) {
 
         edadCorregida = {
+
           años: 0,
+
           meses: 0,
+
           dias: 0
+
         };
 
-      } else {
+      }
+
+      else {
 
         edadCorregida =
           diferenciaFechas(
+
             fechaCorregida,
+
             evaluacion
+
           );
+
       }
 
 
-      document.getElementById("rCorregida").textContent =
+
+      document
+        .getElementById(
+          "rCorregida"
+        )
+        .textContent =
         textoEdad(edadCorregida);
+
 
 
       estado.className =
         "estado prematuro";
 
+
       estado.textContent =
-        "Nacimiento prematuro: " +
+
+        "Prematuro: nació con " +
+
         gestacion +
+
         " semanas de gestación.";
 
 
+
       explicacion.innerHTML = `
-        <strong>Cálculo de la edad corregida:</strong><br><br>
 
-        Edad gestacional al nacer:
-        <strong>${gestacion} semanas</strong>.<br>
-
-        Semanas faltantes para llegar a 40:
         <strong>
-        40 − ${gestacion} =
-        ${semanasPrematuridad} semanas
-        </strong>.<br>
+          Cálculo:
+        </strong>
 
-        Equivalencia:
+        <br><br>
+
+        Semanas que faltaron:
+
+        <br>
+
         <strong>
-        ${semanasPrematuridad} semanas =
-        ${diasPrematuridad} días
-        </strong>.<br><br>
+
+          40 − ${gestacion}
+          = ${semanasPrematuridad} semanas
+
+        </strong>
+
+        <br><br>
+
+        ${semanasPrematuridad}
+        semanas equivalen a
+
+        <strong>
+          ${diasPrematuridad} días
+        </strong>.
+
+        <br><br>
 
         Edad cronológica:
+
         <strong>
-        ${textoEdad(edadCronologica)}
-        </strong>.<br>
+          ${textoEdad(edadCronologica)}
+        </strong>
+
+        <br>
 
         Edad corregida:
+
         <strong>
-        ${textoEdad(edadCorregida)}
-        </strong>.
+          ${textoEdad(edadCorregida)}
+        </strong>
+
       `;
 
     }
 
-    // A TÉRMINO
+
+
+    /* =========================================
+       BEBÉ A TÉRMINO
+       ========================================= */
 
     else {
 
-      document.getElementById("rCorregida").textContent =
-        textoEdad(edadCronologica);
+      document
+        .getElementById(
+          "rCorregida"
+        )
+        .textContent =
+
+        textoEdad(
+          edadCronologica
+        );
+
 
 
       estado.className =
         "estado termino";
 
+
       estado.textContent =
+
         "Nacimiento a término: " +
+
         gestacion +
+
         " semanas de gestación.";
 
 
+
       explicacion.innerHTML = `
-        <strong>No se requiere corrección por prematuridad.</strong>
-        <br><br>
-
-        El nacimiento ocurrió con
-        <strong>${gestacion} semanas de gestación</strong>.
-
-        Para este ejercicio se utiliza directamente
-        la edad cronológica:
-
-        <br><br>
 
         <strong>
-        ${textoEdad(edadCronologica)}
-        </strong>.
+          No requiere corrección
+          por prematuridad.
+        </strong>
+
+        <br><br>
+
+        Al haber nacido con
+
+        <strong>
+          ${gestacion} semanas
+        </strong>,
+
+        se utiliza directamente
+        la edad cronológica.
+
+        <br><br>
+
+        Edad:
+
+        <strong>
+
+          ${textoEdad(
+            edadCronologica
+          )}
+
+        </strong>
+
       `;
+
     }
 
 
-    resultados.style.display = "block";
+
+    resultados.style.display =
+      "block";
 
 
     resultados.scrollIntoView({
-      behavior: "smooth"
+
+      behavior: "smooth",
+
+      block: "start"
+
     });
 
   }
 
 
+
+  /* =========================================
+     MOSTRAR ERROR
+     ========================================= */
+
   function mostrarError(mensaje) {
 
     const error =
-      document.getElementById("error");
+      document.getElementById(
+        "error"
+      );
 
-    error.textContent = mensaje;
-    error.style.display = "block";
+
+    error.textContent =
+      mensaje;
+
+
+    error.style.display =
+      "block";
+
   }
 
+
+
+  /* =========================================
+     LIMPIAR
+     ========================================= */
 
   function limpiar() {
 
-    document.getElementById("nombre").value = "";
-    document.getElementById("nacimiento").value = "";
-    document.getElementById("evaluacion").value = "";
-    document.getElementById("gestacion").value = "";
+    /*
+      El nombre vuelve automáticamente
+      a Vico.
+    */
 
-    document.getElementById("error").style.display =
+    document
+      .getElementById("nombre")
+      .value =
+      "Vico";
+
+
+    document
+      .getElementById("gestacion")
+      .value =
+      "";
+
+
+    document
+      .getElementById("nacimiento")
+      .value =
+      "";
+
+
+    document
+      .getElementById("evaluacion")
+      .value =
+      "";
+
+
+    document
+      .getElementById("error")
+      .style.display =
       "none";
 
-    document.getElementById("resultados").style.display =
+
+    document
+      .getElementById("resultados")
+      .style.display =
       "none";
-  }
 
-
-  function cargarSebastian() {
-
-    document.getElementById("nombre").value =
-      "Sebastián";
-
-    document.getElementById("nacimiento").value =
-      "2026-02-20";
-
-    document.getElementById("evaluacion").value =
-      "2026-10-02";
-
-    document.getElementById("gestacion").value =
-      "34";
-
-    calcular();
-  }
-
-
-  function cargarLaura() {
-
-    document.getElementById("nombre").value =
-      "Laura";
-
-    document.getElementById("nacimiento").value =
-      "2025-09-15";
-
-    document.getElementById("evaluacion").value =
-      "2026-10-02";
-
-    document.getElementById("gestacion").value =
-      "38";
-
-    calcular();
   }
 
 </script>
 
 </body>
+
 </html>
